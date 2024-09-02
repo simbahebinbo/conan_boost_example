@@ -1,12 +1,22 @@
-project(async_tcp_echo_server)
-cmake_minimum_required(VERSION 2.8.11)
+cmake_minimum_required(VERSION 3.15)
+
+project(async_tcp_echo_server LANGUAGES CXX VERSION 1.0.0)
 
 set(CMAKE_VERBOSE_MAKEFILE TRUE)
 
-include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
-conan_basic_setup()
+set(CMAKE_POSITION_INDEPENDENT_CODE TRUE)
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
-file(GLOB SOURCE_FILES *.cpp)
+find_package(boost CONFIG REQUIRED)
 
-add_executable(${PROJECT_NAME} ${SOURCE_FILES})
-target_link_libraries(${PROJECT_NAME} ${CONAN_LIBS})
+file(GLOB SOURCE_FILES src/*.cpp)
+
+add_executable(${PROJECT_NAME}
+        ${SOURCE_FILES}
+)
+
+target_link_libraries(${PROJECT_NAME}
+        boost::boost
+)

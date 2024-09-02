@@ -18,21 +18,65 @@ To add this remote to you Conan client do this:
 
 ``$ conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan``
 
-Build steps
------------
 
-Retrieve your dependencies with Conan:
+```shell
+$ conan --version
+Conan version 2.7.0
 
+$ conan profile show
+Host profile:
+[settings]
+arch=armv8
+build_type=Release
+compiler=apple-clang
+compiler.cppstd=20
+compiler.libcxx=libc++
+compiler.version=15
+os=Macos
+
+Build profile:
+[settings]
+arch=armv8
+build_type=Release
+compiler=apple-clang
+compiler.cppstd=20
+compiler.libcxx=libc++
+compiler.version=15
+os=Macos
 ```
-$ cd conan_boost_example
-$ conan install .
-# Looks for dependencies, downloads packages and generates conanbuildinfo.cmake with variables
+
+
+```shell
+$ cmake --version
+cmake version 3.30.0
+
+CMake suite maintained and supported by Kitware (kitware.com/cmake).
 ```
 
-Configure and build your project with CMake normally (here with Visual Studio):
-
+```shell
+$ gcc --version
+Apple clang version 15.0.0 (clang-1500.3.9.4)
+Target: arm64-apple-darwin23.5.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
 ```
-$ cmake configure . -G "Visual Studio 15 2017 Win64"
-$ cmake --build . --config Release
-# Compiles target in bin/async_tcp_echo_server.exe
+
+```shell
+$ g++ --version
+Apple clang version 15.0.0 (clang-1500.3.9.4)
+Target: arm64-apple-darwin23.5.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+```
+
+编译
+
+```shell
+$ ./build.sh
+```
+
+运行
+
+```shell
+$ ./run.sh
 ```

@@ -1,6 +1,9 @@
 [requires]
-Boost.Asio/1.65.1@bincrafters/stable
-Boost.Bind/1.65.1@bincrafters/stable
+boost/1.86.0
 
 [generators]
-cmake
+CMakeDeps
+CMakeToolchain
+
+[layout]
+cmake_layout
